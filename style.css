@@ -1,0 +1,65 @@
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  text-align:center;
+}
+
+/* HERO SECTION */
+header{
+  background:#111;
+  color:white;
+  padding:80px 20px;
+}
+
+/* ALL SECTIONS */
+section{
+  padding:50px 20px;
+}
+
+/* ALTERNATE BACKGROUND */
+section:nth-of-type(even){
+  background:#f2f2f2;
+}
+
+section:nth-of-type(odd){
+  background:#ffffff;
+}
+
+/* HEADINGS */
+h2{
+  color:#111;
+  margin-bottom:20px;
+}
+
+h3{
+  margin-top:20px;
+  color:#333;
+}
+
+/* PARAGRAPH */
+p{
+  max-width:600px;
+  margin:10px auto;
+  line-height:1.6;
+}
+
+/* BUTTON */
+a{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
+}
+/* DARK TEXT FOR LIGHT SECTIONS */
+section{
+  color:#111;
+}
+
+/* KEEP HERO TEXT WHITE */
+header{
+  color:white;
+}
