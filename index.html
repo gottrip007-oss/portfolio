@@ -5,6 +5,98 @@
   <title>ABHILASH KUMBAR| Web Developer</title>
   <link rel="stylesheet" href="style.css">
 </head>
+  <button onclick="addProject()">Add Project</button>
+
+<script>
+async function addProject() {
+  const { data, error } = await db
+    .from("projects")
+    .insert([
+      {
+        name: "Portfolio Website",
+        type: "Frontend",
+        budget: "5000"
+      }
+    ]);
+
+  if (error) {
+    alert("Error: " + error.message);
+  } else {
+    alert("Project Added Successfully!");
+    console.log(data);
+  }
+}<button onclick="addFatloss()">Add Fatloss Plan</button>
+
+<script>
+async function addFatloss() {
+  const { data, error } = await db
+    .from("fatloss")
+    .insert([
+      {
+        name: "Cutting Phase",
+        goal: "Lose 5kg",
+        weight: "85kg"
+      }
+    ]);
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("Fatloss Data Added!");
+  }
+}
+</script>
+  <button onclick="addGym()">Add Gym Plan</button>
+
+<script>
+async function addGym() {
+  const { data, error } = await db
+    .from("gym")
+    .insert([
+      {
+        name: "Push Pull Legs",
+        level: "Intermediate",
+        goal: "Muscle Gain"
+      }
+    ]);
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("Gym Data Added!");
+  }
+}
+</script>
+  <button onclick="addWebsite()">Add Website</button>
+
+<script>
+async function addWebsite() {
+  const { data, error } = await db
+    .from("websites")
+    .insert([
+      {
+        name: "Client Business Site",
+        type: "Ecommerce",
+        budget: "15000"
+      }
+    ]);
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("Website Data Added!");
+  }
+}
+</script>
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  const supabaseUrl = "mzcaujkfjprfwgfybpdp";
+  const supabaseKey = "sb_publishable_UDx3tEQopHkvoc-P1N4XlA_jtrItQ_S";
+
+  const { createClient } = supabase;
+  const db = createClient(supabaseUrl, supabaseKey);
+</script>
 <body>
 
   <header>
@@ -64,4 +156,5 @@
   </header>
 
 </body>
+
 </html>
