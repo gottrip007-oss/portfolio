@@ -1,57 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ABHILASH KUMBAR | Web Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      text-align: center;
-    }
-
-    header {
-      background: #111;
-      color: white;
-      padding: 30px 20px;
-    }
-
-    section {
-      padding: 30px 20px;
-    }
-
-    h2 {
-      color: #333;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      background: #007bff;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    button:hover {
-      background: #0056b3;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 15px auto;
-      max-width: 500px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABHILASH | Web Developer</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -73,31 +26,43 @@
 
 <section>
   <h2>Services</h2>
+
   <div class="card">🎓 Student Portfolio Website – ₹999</div>
   <div class="card">📄 Resume + Personal Website – ₹999</div>
   <div class="card">🏪 Small Business Website – ₹1999</div>
+
 </section>
 
 <section>
   <h2>Database Actions</h2>
+
   <button onclick="addProject()">Add Project</button>
   <button onclick="addFatloss()">Add Fatloss Plan</button>
   <button onclick="addGym()">Add Gym Plan</button>
   <button onclick="addWebsite()">Add Website</button>
+
 </section>
 
 <section>
   <h2>Contact Me</h2>
-  <p>📱 WhatsApp: +91 74064 20349</p>
+
   <p>📧 gottrip007@gmail.com</p>
+
+  <!-- REAL WHATSAPP BUTTON -->
+  <a class="whatsapp-btn"
+     href="https://wa.me/917406420349"
+     target="_blank">
+     💬 Message Me on WhatsApp
+  </a>
+
 </section>
 
-<!-- SUPABASE SCRIPT -->
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 const supabaseUrl = "https://mzcaujkfjprfwgfybpdp.supabase.co";
-const supabaseKey = "sb_publishable_UDx3tEQopHkvoc-P1N4XlA_jtrItQ_S"; 
+const supabaseKey = "PASTE_YOUR_REAL_PUBLISHABLE_KEY";
 
 const { createClient } = supabase;
 const db = createClient(supabaseUrl, supabaseKey);
@@ -107,7 +72,6 @@ async function addProject() {
   const { error } = await db.from("projects").insert([
     { name: "Portfolio Website", type: "Frontend", budget: "5000" }
   ]);
-
   if (error) alert(error.message);
   else alert("Project Added Successfully!");
 }
@@ -117,7 +81,6 @@ async function addFatloss() {
   const { error } = await db.from("fatloss").insert([
     { name: "Cutting Phase", goal: "Lose 5kg", weight: "85kg" }
   ]);
-
   if (error) alert(error.message);
   else alert("Fatloss Data Added!");
 }
@@ -127,7 +90,6 @@ async function addGym() {
   const { error } = await db.from("gym").insert([
     { name: "Push Pull Legs", level: "Intermediate", goal: "Muscle Gain" }
   ]);
-
   if (error) alert(error.message);
   else alert("Gym Data Added!");
 }
@@ -137,7 +99,6 @@ async function addWebsite() {
   const { error } = await db.from("websites").insert([
     { name: "Client Business Site", type: "Ecommerce", budget: "15000" }
   ]);
-
   if (error) alert(error.message);
   else alert("Website Data Added!");
 }
