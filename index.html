@@ -2,123 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ABHILASH KUMBAR| Web Developer</title>
+  <title>ABHILASH KUMBAR | Web Developer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  
+
 <body>
 
   <header>
-    <h1>Hi, I'm Your ABHILASH </h1>
+    <h1>Hi, I'm Your ABHILASH</h1>
     <p>Student Web Developer</p>
-
-    <a href="https://wa.me/+91 74064 20349" target="_blank">
-      Contact Me on WhatsApp
-    </a>
-    <section>
-  <h2>About Me</h2>
-  <p>
-    I am a B.E. student and a passionate web developer.
-    I build portfolio websites for students and websites
-    for small businesses at an affordable price.
-  </p>
-</section>
-<section>
-  <h2>My Skills</h2>
-  <p>HTML | CSS | JavaScript | PHP | MySQL</p>
-</section>
-<section>
-  <h2>Services</h2>
-
-  <p>🎓 Student Portfolio Website – ₹999</p>
-  <p>📄 Resume + Personal Website – ₹999</p>
-  <p>🏪 Small Business Website – ₹1999</p>
-
-</section>
-<section>
-  <h2>Projects</h2>
-
-  <h3>🎓 Student Portfolio Website</h3>
-  <p>
-    A responsive personal portfolio website for students
-    with resume download and contact form.
-  </p>
-
-  <h3>🏪 Business Website</h3>
-  <p>
-    A modern website for small businesses with
-    services section and enquiry form.
-  </p>
-
-</section>
-<section>
-  <h2>Contact Me</h2>
-
-  <p>📱 WhatsApp: +91 74064 20349</p>
-  <p>📧 gottrip007@gmail.com</p>
-
-  <a href="https://wa.me/+91 74064 20349" target="_blank">
-    Message Me on WhatsApp
-  </a>
-
-</section>
   </header>
-<!-- Buttons -->
-<section style="margin:20px;">
-  <button onclick="addProject()">Add Project</button>
-  <button onclick="addFatloss()">Add Fatloss Plan</button>
-  <button onclick="addGym()">Add Gym Plan</button>
-  <button onclick="addWebsite()">Add Website</button>
-</section>
 
-<!-- Load Supabase FIRST -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <section style="margin:20px;">
+    <button onclick="addProject()">Add Project</button>
+    <button onclick="addFatloss()">Add Fatloss Plan</button>
+    <button onclick="addGym()">Add Gym Plan</button>
+    <button onclick="addWebsite()">Add Website</button>
+  </section>
 
-<script>
-const supabaseUrl = "https://mzcaujkfjprfwgfybpdp.supabase.co";
-const supabaseKey = "sb_publishable_UDx3tEQopHkvoc-P1N4XlA_jtrItQ_S";
+  <!-- SUPABASE SCRIPT MUST COME FIRST -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-const { createClient } = supabase;
-const db = createClient(supabaseUrl, supabaseKey);
+  <script>
+    const supabaseUrl = "https://mzcaujkfjprfwgfybpdp.supabase.co";
+    const supabaseKey = "sb_publishable_UDx3tEQopHkvoc-P1N4XlA_jtrItQ_S";
 
-// PROJECT
-async function addProject() {
-  const { error } = await db.from("projects").insert([
-    { name: "Portfolio Website", type: "Frontend", budget: "5000" }
-  ]);
+    const { createClient } = supabase;
+    const db = createClient(supabaseUrl, supabaseKey);
 
-  if (error) alert(error.message);
-  else alert("Project Added Successfully!");
-}
+    async function addProject() {
+      const { error } = await db.from("projects").insert([
+        { name: "Portfolio Website", type: "Frontend", budget: "5000" }
+      ]);
 
-// FATLOSS
-async function addFatloss() {
-  const { error } = await db.from("fatloss").insert([
-    { name: "Cutting Phase", goal: "Lose 5kg", weight: "85kg" }
-  ]);
+      if (error) alert(error.message);
+      else alert("Project Added Successfully!");
+    }
 
-  if (error) alert(error.message);
-  else alert("Fatloss Data Added!");
-}
+    async function addFatloss() {
+      const { error } = await db.from("fatloss").insert([
+        { name: "Cutting Phase", goal: "Lose 5kg", weight: "85kg" }
+      ]);
 
-// GYM
-async function addGym() {
-  const { error } = await db.from("gym").insert([
-    { name: "Push Pull Legs", level: "Intermediate", goal: "Muscle Gain" }
-  ]);
+      if (error) alert(error.message);
+      else alert("Fatloss Data Added!");
+    }
 
-  if (error) alert(error.message);
-  else alert("Gym Data Added!");
-}
+    async function addGym() {
+      const { error } = await db.from("gym").insert([
+        { name: "Push Pull Legs", level: "Intermediate", goal: "Muscle Gain" }
+      ]);
 
-// WEBSITE
-async function addWebsite() {
-  const { error } = await db.from("websites").insert([
-    { name: "Client Business Site", type: "Ecommerce", budget: "15000" }
-  ]);
+      if (error) alert(error.message);
+      else alert("Gym Data Added!");
+    }
 
-  if (error) alert(error.message);
-  else alert("Website Data Added!");
-}
-</script>
+    async function addWebsite() {
+      const { error } = await db.from("websites").insert([
+        { name: "Client Business Site", type: "Ecommerce", budget: "15000" }
+      ]);
 
+      if (error) alert(error.message);
+      else alert("Website Data Added!");
+    }
+  </script>
+
+</body>
+</html>
